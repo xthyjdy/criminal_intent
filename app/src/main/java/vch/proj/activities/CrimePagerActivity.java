@@ -19,7 +19,8 @@ import vch.proj.classes.Crime;
 import vch.proj.classes.CrimeLab;
 import vch.proj.fragments.CrimeFragment;
 
-public class CrimePagerActivity extends AppCompatActivity {
+public class CrimePagerActivity extends AppCompatActivity
+        implements CrimeFragment.Callbacks {
     public static final String EXTRA_CRIME_ID = "vch.proj.activities.crime_id";
     protected ViewPager mViewPager;
     protected List<Crime> mCrimes;
@@ -60,5 +61,10 @@ public class CrimePagerActivity extends AppCompatActivity {
         Intent intent = new Intent(context, CrimePagerActivity.class);
         intent.putExtra(EXTRA_CRIME_ID, id);
         return intent;
+    }
+
+    @Override
+    public void onCrimeUpdated(Crime crime) {
+
     }
 }
